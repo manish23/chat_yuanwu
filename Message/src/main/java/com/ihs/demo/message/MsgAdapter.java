@@ -1,13 +1,10 @@
 package com.ihs.demo.message;
 
-import android.content.ContentResolver;
 import android.content.Context;
 
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,8 +19,6 @@ import com.ihs.message.types.HSImageMessage;
 import com.ihs.message.types.HSMessageType;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.util.List;
 
 public class MsgAdapter extends BaseAdapter {
@@ -115,13 +110,23 @@ public class MsgAdapter extends BaseAdapter {
             try {
 
                 hsImageMessage.download();
-                File file = new File(hsImageMessage.getThumbnailFilePath());
-                Uri uri = Uri.fromFile(file);
+                File file = new File(hsImageMessage.getNormalImageFilePath());
+                final Uri uri = Uri.fromFile(file);
                 viewHolder.imageView.setImageURI(uri);
 
 //                viewHolder.imageView.setImageBitmap(bitmap);
                 viewHolder.tvContent.setVisibility(View.GONE);
                 viewHolder.imageView.setVisibility(View.VISIBLE);
+                viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent();
+                        intent.setClass(context, ImageActivity.class);
+                        intent.putExtra("Image", uri.toString());
+                        context.startActivity(intent);
+
+                    }
+                });
                 HSLog.e(TAG, hsImageMessage.getThumbnailFilePath());
             }catch (OutOfMemoryError e){
                 e.printStackTrace();

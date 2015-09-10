@@ -428,6 +428,7 @@
     <eat-comment/>
     <string name="tap_to_send">按住 说话</string>
     <string name="title_activity_chat">ChatActivity</string>
+    <string name="title_activity_image">ImageActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="to_mid">to_mid</string>
     <!-- From: file:/home/wuchen/project_git/yuanwu/Message/build/intermediates/exploded-aar/yuanwu/googleplayservices_lib_r21/unspecified/res/values/values.xml -->
