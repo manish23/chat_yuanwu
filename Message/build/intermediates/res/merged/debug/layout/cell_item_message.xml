@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/unread"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/pink"
+        android:textSize="15sp"
+        android:textAlignment="gravity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/unread"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/name_Date_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/cell_item_title_text_view_paddingLeft"
+            android:paddingRight="@dimen/cell_item_title_text_view_paddingRight"
+            android:textAlignment="gravity"
+            android:textSize="@dimen/cell_item_title_text_view_textSize" />
+
+        <TextView
+            android:id="@+id/detail_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/cell_item_detail_text_view_paddingLeft"
+            android:paddingRight="@dimen/cell_item_detail_text_view_paddingRight"
+            android:textAlignment="gravity"
+            android:textSize="@dimen/cell_item_detail_text_view_textSize" />
+    </LinearLayout>
+
+</RelativeLayout><!-- From: file:/home/wuchen/project_git/yuanwu/Message/src/main/res/layout/cell_item_message.xml -->

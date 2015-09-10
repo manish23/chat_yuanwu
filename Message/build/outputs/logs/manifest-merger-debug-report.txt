@@ -1,0 +1,221 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:2:1-105:12
+	package
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:3:5-30
+		INJECTED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml
+		INJECTED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:5:5-30
+	android:versionCode
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:4:5-28
+		INJECTED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml
+		INJECTED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:2:11-69
+uses-sdk
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:7:5-9:41
+MERGED from [yuanwu:androidsupportv7appcompat:unspecified] /home/wuchen/project_git/yuanwu/Message/build/intermediates/exploded-aar/yuanwu/androidsupportv7appcompat/unspecified/AndroidManifest.xml:20:5-22:41
+MERGED from [yuanwu:googleplayservices_lib_r21:unspecified] /home/wuchen/project_git/yuanwu/Message/build/intermediates/exploded-aar/yuanwu/googleplayservices_lib_r21/unspecified/AndroidManifest.xml:23:5-25:41
+	android:targetSdkVersion
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:9:9-38
+		INJECTED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml
+		INJECTED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:8:9-35
+		INJECTED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml
+		INJECTED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:11:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:13:5-76
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:13:22-73
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:14:5-79
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:14:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:15:5-81
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:15:22-78
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:16:5-81
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:16:22-78
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:17:5-82
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:17:22-79
+uses-permission#com.ihs.message.permission.C2D_MESSAGE
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:18:5-78
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:18:22-75
+uses-permission#android.permission.READ_CONTACTS
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:19:5-72
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:19:22-69
+uses-permission#android.permission.WRITE_CONTACTS
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:20:5-73
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:20:22-70
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:21:5-71
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:21:22-68
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:24:5-71
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:24:22-68
+uses-permission#android.permission.USE_CREDENTIALS
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:25:5-74
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:25:22-71
+uses-permission#android.permission.MANAGE_ACCOUNTS
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:26:5-74
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:26:22-71
+uses-permission#android.permission.AUTHENTICATE_ACCOUNTS
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:27:5-80
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:27:22-77
+uses-permission#com.android.launcher.permission.READ_SETTINGS
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:28:5-85
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:28:22-82
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:29:5-76
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:29:22-73
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:30:5-75
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:30:22-72
+uses-permission#android.permission.BROADCAST_STICKY
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:32:5-75
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:32:22-72
+permission#com.ihs.app.template.permission.C2D_MESSAGE
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:34:5-36:47
+	android:protectionLevel
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:36:9-44
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:35:9-67
+android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:38:5-88
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:38:30-85
+application
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:40:5-103:19
+MERGED from [yuanwu:androidsupportv7appcompat:unspecified] /home/wuchen/project_git/yuanwu/Message/build/intermediates/exploded-aar/yuanwu/androidsupportv7appcompat/unspecified/AndroidManifest.xml:24:5-20
+MERGED from [yuanwu:googleplayservices_lib_r21:unspecified] /home/wuchen/project_git/yuanwu/Message/build/intermediates/exploded-aar/yuanwu/googleplayservices_lib_r21/unspecified/AndroidManifest.xml:27:5-20
+	android:label
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:44:9-41
+	android:allowBackup
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:42:9-35
+	android:icon
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:43:9-45
+	android:theme
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:45:9-40
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:41:9-60
+service#com.baidu.location.f
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:46:9-54:19
+	android:enabled
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:48:13-35
+	android:process
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:49:13-38
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:47:13-48
+intent-filter#com.baidu.location.service_v2.2
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:50:13-53:29
+action#com.baidu.location.service_v2.2
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:51:17-52:26
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:51:25-71
+activity#com.ihs.demo.message.MainActivity
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:56:9-64:20
+	android:label
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:58:13-45
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:57:13-61
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:59:13-63:29
+action#android.intent.action.MAIN
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:60:17-69
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:60:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:62:17-77
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:62:27-74
+activity#com.ihs.demo.message.LoginActivity
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:65:9-68:20
+	android:screenOrientation
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:67:13-49
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:66:13-62
+activity#com.ihs.demo.message.ZoomImageView
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:69:9-70:20
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:69:19-68
+activity#com.ihs.demo.message.ProBaseActivity
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:71:9-72:20
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:71:19-70
+activity#com.ihs.demo.message.MtVerifyActivity
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:73:9-74:20
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:73:19-71
+activity#com.ihs.demo.message.CongratulationActivity
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:75:9-76:20
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:75:19-77
+meta-data#com.baidu.lbsapi.API_KEY
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:80:9-82:56
+	android:value
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:82:13-53
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:81:13-52
+meta-data#com.google.android.gms.version
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:83:9-85:69
+	android:value
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:85:13-66
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:84:13-58
+receiver#com.ihs.app.push.impl.GcmBroadcastReceiver
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:87:9-97:20
+	android:permission
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:89:13-73
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:88:13-70
+intent-filter#com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION+com.google.android.gcm.intent.RETRY+com.ihs.message
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:90:13-96:29
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:91:17-86
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:91:25-83
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:92:17-81
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:92:25-78
+action#com.google.android.gcm.intent.RETRY
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:93:17-78
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:93:25-75
+category#com.ihs.message
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:95:17-60
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:95:27-57
+activity#com.ihs.demo.message.ChatActivity
+ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:99:9-102:20
+	android:label
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:101:13-56
+	android:name
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:100:13-61

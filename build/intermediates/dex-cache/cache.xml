@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/wuchen/project_git/yuanwu/Message/libs/libAccount.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d148951221516b0042a3994f6d2fd23f25c01ff3">
+        <dex dex="/home/wuchen/project_git/yuanwu/Message/build/intermediates/pre-dexed/debug/libAccount-f72f089af917659ff79e36df3da4d346cc44d3cd.jar" />
+    </item>
+    <item
+        jar="/home/wuchen/project_git/yuanwu/Message/libs/libContacts.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5e2f56fbd76e28972c9cc97fb2dc14bbe4faa991">
+        <dex dex="/home/wuchen/project_git/yuanwu/Message/build/intermediates/pre-dexed/debug/libContacts-543a04f1dd644784e1452b4dda2a0ec4cef300d6.jar" />
+    </item>
+    <item
+        jar="/home/wuchen/project_git/yuanwu/Message/libs/libAppFramework.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8854887f97ca718fcbbe87f2a957896170438ce1">
+        <dex dex="/home/wuchen/project_git/yuanwu/Message/build/intermediates/pre-dexed/debug/libAppFramework-79c1e27c06d851818d4cc83e5a12eeecd7747651.jar" />
+    </item>
+    <item
+        jar="/home/wuchen/project_git/yuanwu/Message/build/intermediates/exploded-aar/yuanwu/androidsupportv7appcompat/unspecified/jars/libs/android-support-v7-appcompat.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="3d62997c154488738d1367406fb7ac6074f992e2">
+        <dex dex="/home/wuchen/project_git/yuanwu/Message/build/intermediates/pre-dexed/debug/android-support-v7-appcompat-f96e5e479a28facaf9d7ee2db20c83f97bb714fa.jar" />
+    </item>
+    <item
+        jar="/home/wuchen/project_git/yuanwu/Message/build/intermediates/exploded-aar/yuanwu/androidsupportv7appcompat/unspecified/jars/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5896b0a4e377ac4242eb2bc785220c1c4fc052f4">
+        <dex dex="/home/wuchen/project_git/yuanwu/Message/build/intermediates/pre-dexed/debug/android-support-v4-6c8a86814926257927668b79ee3cea70c7cb7ba3.jar" />
+    </item>
+    <item
+        jar="/home/wuchen/project_git/yuanwu/Message/build/intermediates/exploded-aar/yuanwu/androidsupportv7appcompat/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="503826d129e6c979994b8044a75caceb32e2af10">
+        <dex dex="/home/wuchen/project_git/yuanwu/Message/build/intermediates/pre-dexed/debug/classes-eca0a0db0d21c29c4dd09a93ccbb87a6cac3a734.jar" />
+    </item>
+    <item
+        jar="/home/wuchen/project_git/yuanwu/Message/libs/libphonenumber.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7f81b0af7936a844094071b79eb81d56eb022953">
+        <dex dex="/home/wuchen/project_git/yuanwu/Message/build/intermediates/pre-dexed/debug/libphonenumber-a3f89d040a75da0ccbffd3c857cc25a7b47765e7.jar" />
+    </item>
+    <item
+        jar="/home/wuchen/project_git/yuanwu/Message/build/intermediates/exploded-aar/yuanwu/googleplayservices_lib_r21/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="2ba8475d5b88631b104d4e056441213c6264f517">
+        <dex dex="/home/wuchen/project_git/yuanwu/Message/build/intermediates/pre-dexed/debug/classes-f1227ecdee245632247d7adc8bd5c8bd60a419e2.jar" />
+    </item>
+    <item
+        jar="/home/wuchen/project_git/yuanwu/Message/libs/BaiduLBS_Android.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a565cef68a4566d7b08bb280f45222dcf154e093">
+        <dex dex="/home/wuchen/project_git/yuanwu/Message/build/intermediates/pre-dexed/debug/BaiduLBS_Android-980f6b6409777b40cdbdb89d80c110ea8358de41.jar" />
+    </item>
+    <item
+        jar="/home/wuchen/project_git/yuanwu/Message/build/intermediates/exploded-aar/yuanwu/googleplayservices_lib_r21/unspecified/jars/libs/google-play-services.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0f6d5c1ef2e982c3b7858408e3df389cf5d202da">
+        <dex dex="/home/wuchen/project_git/yuanwu/Message/build/intermediates/pre-dexed/debug/google-play-services-e0445ff17586727d734d3d7af566017401d06a33.jar" />
+    </item>
+    <item
+        jar="/home/wuchen/project_git/yuanwu/Message/libs/universal-image-loader-1.9.3-with-sources.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="03e3948d42b8d78961a092a184af66bd86da42e6">
+        <dex dex="/home/wuchen/project_git/yuanwu/Message/build/intermediates/pre-dexed/debug/universal-image-loader-1.9.3-with-sources-279b3a03c2c367e818e4cd543c337bca7293e030.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/wuchen/project_git/yuanwu/Message/build/intermediates/exploded-aar/yuanwu/androidsupportv7appcompat/unspecified/res/values-w360dp/values-w360dp.xml -->
+    <eat-comment/>
+    <integer name="abc_max_action_buttons">3</integer>
+</resources>
