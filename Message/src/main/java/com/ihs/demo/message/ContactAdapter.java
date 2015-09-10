@@ -23,7 +23,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
     DisplayImageOptions options;
 
     private class ViewHolder {
-        ImageView avatarImageView;
+//        ImageView avatarImageView;
         TextView titleTextView;
         TextView detailTextView;
     }
@@ -37,8 +37,8 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         this.contacts = objects;
         this.context = context;
 
-        options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.chat_avatar_default_icon).showImageForEmptyUri(R.drawable.chat_avatar_default_icon)
-                .showImageOnFail(R.drawable.chat_avatar_default_icon).cacheInMemory(true).cacheOnDisk(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
+//        options = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.chat_avatar_default_icon).showImageForEmptyUri(R.drawable.chat_avatar_default_icon)
+//                .showImageOnFail(R.drawable.chat_avatar_default_icon).cacheInMemory(true).cacheOnDisk(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).build();
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -52,7 +52,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
             TextView detailView = (TextView) convertView.findViewById(R.id.detail_text_view);
             holder.titleTextView = titleView;
             holder.detailTextView = detailView;
-            holder.avatarImageView = (ImageView) convertView.findViewById(R.id.contact_avatar);
+//            holder.avatarImageView = (ImageView) convertView.findViewById(R.id.contact_avatar);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -61,7 +61,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         Contact contact = contacts.get(position);
         holder.titleTextView.setText("" + contact.getName() + ": " + contact.getContent());
         holder.detailTextView.setText("mid: " + contact.getMid());
-        ImageLoader.getInstance().displayImage("content://com.android.contacts/contacts/" + contact.getContactId(), holder.avatarImageView, options);
+//        ImageLoader.getInstance().displayImage("content://com.android.contacts/contacts/" + contact.getContactId(), holder.avatarImageView, options);
 
         return convertView;
     }

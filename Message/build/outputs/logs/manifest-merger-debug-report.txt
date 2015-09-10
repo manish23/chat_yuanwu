@@ -122,7 +122,7 @@ MERGED from [yuanwu:googleplayservices_lib_r21:unspecified] /home/wuchen/project
 	android:icon
 		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:43:9-45
 	android:theme
-		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:45:9-40
+		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:45:9-44
 	android:name
 		ADDED from /home/wuchen/project_git/yuanwu/Message/src/main/AndroidManifest.xml:41:9-60
 service#com.baidu.location.f
