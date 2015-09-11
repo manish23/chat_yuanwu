@@ -240,54 +240,39 @@ public class ChatActivity extends HSActionBarActivity implements HSMessageChange
                         Date date = new Date(System.currentTimeMillis());
                         String str = formatter.format(date);
                         _chatEntity = new ChatEntity(textMessage.getText(), str, "read", messages.get(i), false);
-                        Data_Entity.add(_chatEntity);
-                        msgAdapter.notifyDataSetChanged();
-                        listView.setSelection(Data_Entity.size() - 1);
                     }
                     else if(textMessage.getTo().equals(mid)){
                         Date date = new Date(System.currentTimeMillis());
                         String str = formatter.format(date);
                         status = textMessage.getStatus().valueOf(textMessage.getStatus().getValue()).toString();
-                        ChatEntity chatEntity = new ChatEntity(textMessage.getText(), str, status.toLowerCase(), messages.get(i), true);
-                        Data_Entity.add(chatEntity);
-                        msgAdapter.notifyDataSetChanged();
-                        listView.setSelection(Data_Entity.size() - 1);
+                        _chatEntity = new ChatEntity(textMessage.getText(), str, status.toLowerCase(), messages.get(i), true);
                     }
                 }else if(messages.get(i).getType() == HSMessageType.IMAGE){
                     if(messages.get(i).getFrom().equals(mid)){
                          Date date = new Date(System.currentTimeMillis());
                         String str = formatter.format(date);
                         _chatEntity = new ChatEntity("", str, "read", messages.get(i), false);
-                        Data_Entity.add(_chatEntity);
-                        msgAdapter.notifyDataSetChanged();
-                        listView.setSelection(Data_Entity.size() - 1);
 
                     }else {
                         Date date = messages.get(i).getTimestamp();
                         String str = formatter.format(date);
                         status = messages.get(i).getStatus().valueOf(messages.get(i).getStatus().getValue()).toString();
                         _chatEntity = new ChatEntity("", str, status.toLowerCase(), messages.get(i), true);
-                        Data_Entity.add(_chatEntity);
-                        msgAdapter.notifyDataSetChanged();
-                        listView.setSelection(Data_Entity.size()-1);
                     }
                 }else if(messages.get(i).getType() == HSMessageType.AUDIO){
                     if(messages.get(i).getFrom().equals(mid)){
                         Date date = messages.get(i).getTimestamp();
                         String str = formatter.format(date);
                         _chatEntity = new ChatEntity("", str, "read", messages.get(i), false);
-                        Data_Entity.add(_chatEntity);
-                        msgAdapter.notifyDataSetChanged();
-                        listView.setSelection(Data_Entity.size()-1);
                     }else{
                         Date date = messages.get(i).getTimestamp();
                         String str = formatter.format(date);
                         _chatEntity = new ChatEntity("", str, "sending", messages.get(i), true);
-                        Data_Entity.add(_chatEntity);
-                        msgAdapter.notifyDataSetChanged();
-                        listView.setSelection(Data_Entity.size()-1);
                     }
                 }
+                Data_Entity.add(_chatEntity);
+                msgAdapter.notifyDataSetChanged();
+                listView.setSelection(Data_Entity.size() - 1);
             }
         }
         if(changeType == HSMessageChangeType.UPDATED && !messages.isEmpty()){
