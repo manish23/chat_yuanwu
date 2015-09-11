@@ -4,6 +4,7 @@ import android.content.Context;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 import com.ihs.commons.utils.HSLog;
 import com.ihs.message.R;
+import com.ihs.message.types.HSAudioMessage;
 import com.ihs.message.types.HSImageMessage;
 import com.ihs.message.types.HSMessageType;
 
@@ -34,6 +36,7 @@ public class MsgAdapter extends BaseAdapter {
     private static final String TAG = MsgAdapter.class.getSimpleName();
     private List<ChatEntity> data;
     private Context context;
+    public MediaPlayer Player;
     private LayoutInflater mInflater;
 
     public MsgAdapter(Context context, List<ChatEntity> data) {
@@ -79,7 +82,7 @@ public class MsgAdapter extends BaseAdapter {
     //获取View
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ChatEntity entity = data.get(position);
+        final ChatEntity entity = data.get(position);
         boolean isComMsg = entity.get_Issend();
 
         ViewHolder viewHolder = null;
@@ -142,6 +145,35 @@ public class MsgAdapter extends BaseAdapter {
             viewHolder.tvContent.setText(entity.getText());
             viewHolder.tvContent.setVisibility(View.VISIBLE);
             viewHolder.imageView.setVisibility(View.GONE);
+        }else if(entity.getHsBaseMessage().getType() == HSMessageType.AUDIO){
+            viewHolder.imageView.setImageResource(R.drawable.chat_multimedia_audio_play_3);
+            viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    HSAudioMessage hsAudioMessage = (HSAudioMessage)entity.getHsBaseMessage();
+                    if(Player != null && Player.isPlaying()){
+                        Player.release();
+                        Player = null;
+                    }else{
+                        hsAudioMessage.download();
+                        Uri uri = Uri.parse(hsAudioMessage.getAudioFilePath());
+                        Player = MediaPlayer.create(context, uri);
+                        Player.start();
+                        Player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            Player.release();
+                            Player = null;
+
+                        }
+                    });
+                    }
+
+
+                }
+            });
+            viewHolder.imageView.setVisibility(View.VISIBLE);
+            viewHolder.tvContent.setVisibility(View.GONE);
         }
         viewHolder.tvSendTime.setText(entity.getDate() + " " + entity.getStatus());
 

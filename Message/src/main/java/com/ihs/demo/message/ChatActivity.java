@@ -271,6 +271,22 @@ public class ChatActivity extends HSActionBarActivity implements HSMessageChange
                         msgAdapter.notifyDataSetChanged();
                         listView.setSelection(Data_Entity.size()-1);
                     }
+                }else if(messages.get(i).getType() == HSMessageType.AUDIO){
+                    if(messages.get(i).getFrom().equals(mid)){
+                        Date date = messages.get(i).getTimestamp();
+                        String str = formatter.format(date);
+                        _chatEntity = new ChatEntity("", str, "read", messages.get(i), false);
+                        Data_Entity.add(_chatEntity);
+                        msgAdapter.notifyDataSetChanged();
+                        listView.setSelection(Data_Entity.size()-1);
+                    }else{
+                        Date date = messages.get(i).getTimestamp();
+                        String str = formatter.format(date);
+                        _chatEntity = new ChatEntity("", str, "sending", messages.get(i), true);
+                        Data_Entity.add(_chatEntity);
+                        msgAdapter.notifyDataSetChanged();
+                        listView.setSelection(Data_Entity.size()-1);
+                    }
                 }
             }
         }

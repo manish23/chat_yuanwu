@@ -71,11 +71,7 @@ public class MessageAdapter extends ArrayAdapter<Contact> {
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         hsBaseMessage = HSMessageManager.getInstance().queryMessages(contact.getMid(), 1, -1).getMessages();
-//        for(int i = hsBaseMessage.size()-1; i >= 0; i--){
-//            HSBaseMessage hsBaseMessage1 = hsBaseMessage.get(i);
-//            if(hsBaseMessage1.getStatus().getValue() == 3)
-//                unread_num ++;
-//        }
+
         unread_num = HSMessageManager.getInstance().queryUnreadCount(contact.getMid());
         HSBaseMessage baseMessage = hsBaseMessage.get(0);
         String date = formatter.format(baseMessage.getTimestamp());
@@ -89,6 +85,8 @@ public class MessageAdapter extends ArrayAdapter<Contact> {
             holder.detailTextView.setText(text);
         }else if(baseMessage.getType() == HSMessageType.IMAGE){
             holder.detailTextView.setText("[Image]");
+        }else if(baseMessage.getType() == HSMessageType.AUDIO){
+            holder.detailTextView.setText("[Audio]");
         }
         holder.nameDate.setTextColor(Color.parseColor("#000622"));
         holder.detailTextView.setTextColor(Color.parseColor("#000622"));

@@ -110,7 +110,8 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
             player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
-                    player.release();
+                    if(player != null)
+                        player.release();
                     player = null;
                 }
             });
@@ -245,7 +246,7 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
                     break;
                 }
             }
-           
+
         }
     }
 
