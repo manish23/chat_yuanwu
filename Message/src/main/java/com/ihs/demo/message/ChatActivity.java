@@ -1,27 +1,35 @@
 package com.ihs.demo.message;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.media.MediaPlayer;
+import android.media.MediaRecorder;
 import android.net.Uri;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.ihs.commons.utils.HSError;
 import com.ihs.commons.utils.HSLog;
 import com.ihs.message.R;
 import com.ihs.message.managers.HSMessageChangeListener;
 import com.ihs.message.managers.HSMessageManager;
+import com.ihs.message.types.HSAudioMessage;
 import com.ihs.message.types.HSBaseMessage;
 import com.ihs.message.types.HSImageMessage;
 import com.ihs.message.types.HSMessageType;
@@ -30,6 +38,7 @@ import com.ihs.message.types.HSTextMessage;
 
 import org.json.JSONObject;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,10 +54,14 @@ public class ChatActivity extends HSActionBarActivity implements HSMessageChange
     private ImageButton multiButton;
     private ImageButton button_image;
     private ImageButton button_location;
+    private ImageButton button_audio;
+    private TextView audio;
     private EditText editText;
     private String status;
     private ChatEntity _chatEntity;
     private String myword;
+    private String filePath;
+    private MediaRecorder mediaRecorder;
     public MediaPlayer player;
     private static final String TAG = ChatActivity.class.getName();
     private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -108,6 +121,8 @@ public class ChatActivity extends HSActionBarActivity implements HSMessageChange
         final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.btn_multimedia);
         button_image = (ImageButton) findViewById(R.id.photo_btn);
         button_location = (ImageButton) findViewById(R.id.location);
+        button_audio = (ImageButton) findViewById(R.id.iv_popup);
+        audio = (TextView) findViewById(R.id.btn_rcd);
         listView = (ListView) findViewById(R.id.List_view);
         editText = (EditText) findViewById(R.id.editText_sendmessage);
         search();
@@ -145,8 +160,76 @@ public class ChatActivity extends HSActionBarActivity implements HSMessageChange
 
             }
         });
-    }
+        button_audio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(audio.getVisibility() == View.VISIBLE){
+                    audio.setVisibility(View.GONE);
+                    multiButton.setVisibility(View.VISIBLE);
+                    editText.hasFocus();
+                }else {
+                    audio.setVisibility(View.VISIBLE);
+                    multiButton.setVisibility(View.GONE);
+                    editText.clearFocus();
+                }
+            }
+        });
+        audio.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    startRecord();
+                    return true;
+                }else if(event.getAction() == MotionEvent.ACTION_UP){
+                    mediaRecorder.release();
+                    HSAudioMessage hsAudioMessage = new HSAudioMessage(mid, filePath, 0);
+                    HSMessageManager.getInstance().send(hsAudioMessage, new SendMessageCallback() {
+                        @Override
+                        public void onMessageSentFinished(HSBaseMessage message, boolean success, HSError error) {
+                            HSLog.e(TAG, "success:"+success);
+                        }
+                    }, new Handler());
+                    return false;
+                }
+                return false;
+            }
+        });
 
+    }
+    public void startRecord(){
+        try {
+            mediaRecorder = new MediaRecorder();
+            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
+            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+
+            String path = getSDpath();
+            if(path != null){
+                File dir = new File(path + "/MsgRecord");
+                if(!dir.exists()){
+                    dir.mkdir();
+                }
+                path = dir.getAbsolutePath() +"/" +formatter.format(System.currentTimeMillis()) +".3gp";
+                mediaRecorder.setOutputFile(path);
+                mediaRecorder.prepare();
+                mediaRecorder.start();
+                filePath = path;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return;
+        }
+    }
+    public String getSDpath() {
+        File sdir = null;
+        boolean sdCardExist = Environment.getExternalStorageState()
+                .equals(android.os.Environment.MEDIA_MOUNTED);
+        if(sdCardExist){
+            sdir = Environment.getExternalStorageDirectory();
+            return sdir.getAbsolutePath();
+        }
+        return null;
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

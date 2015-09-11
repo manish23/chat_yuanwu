@@ -158,15 +158,18 @@ public class MsgAdapter extends BaseAdapter {
                         hsAudioMessage.download();
                         Uri uri = Uri.parse(hsAudioMessage.getAudioFilePath());
                         Player = MediaPlayer.create(context, uri);
-                        Player.start();
-                        Player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                        @Override
-                        public void onCompletion(MediaPlayer mp) {
-                            Player.release();
-                            Player = null;
+                        if(Player != null){
 
+                            Player.start();
+                            Player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                                @Override
+                                public void onCompletion(MediaPlayer mp) {
+                                    Player.release();
+                                    Player = null;
+
+                                }
+                            });
                         }
-                    });
                     }
 
 
