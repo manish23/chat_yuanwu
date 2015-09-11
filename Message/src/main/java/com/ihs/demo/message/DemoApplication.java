@@ -5,8 +5,16 @@ import java.util.List;
 import org.json.JSONObject;
 
 import test.contacts.demo.friends.api.HSContactFriendsMgr;
+
+import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.Toast;
@@ -22,6 +30,7 @@ import com.ihs.commons.notificationcenter.INotificationObserver;
 import com.ihs.commons.utils.HSBundle;
 import com.ihs.commons.utils.HSLog;
 import com.ihs.contacts.api.HSPhoneContactMgr;
+import com.ihs.message.R;
 import com.ihs.message.managers.HSMessageChangeListener;
 import com.ihs.message.managers.HSMessageManager;
 import com.ihs.message.types.HSBaseMessage;
@@ -31,7 +40,6 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-
 public class DemoApplication extends HSApplication implements HSMessageChangeListener, INotificationObserver {
 
     /*
@@ -39,6 +47,10 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
      */
     public static final String URL_SYNC = "http://54.223.212.19:8024/template/contacts/friends/get";
     public static final String URL_ACK = "http://54.223.212.19:8024/template/contacts/friends/get";
+    MediaPlayer player;
+    private NotificationManager notificationManager;
+    String mid;
+    String name;
 
     private static final String TAG = DemoApplication.class.getName(); // 用于打印 log
 
@@ -89,7 +101,21 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
             HSKeepCenter.getInstance().connect();
         }
     }
-
+    private void play_ringtone(){
+        try {
+            player = MediaPlayer.create(this, R.raw.message_ringtone_received);
+            player.start();
+            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    player.release();
+                    player = null;
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -125,7 +151,7 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
 
     /**
      * 收到 “正在输入” 消息时被调用
-     * 
+     *
      * @param fromMid “正在输入” 消息发送者的 mid
      */
     @Override
@@ -135,7 +161,7 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
 
     /**
      * 收到在线消息时被调用
-     * 
+     *
      * @param message 收到的在线消息，其 content 值由用户定制，可实现自己的通讯协议和交互逻辑
      */
     @Override
@@ -150,7 +176,7 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
 
     /**
      * 当来自某人的消息中，未读消息数量发生变化时被调用
-     * 
+     *
      * @param mid 对应人的 mid
      * @param newCount 变化后的未读消息数量
      */
@@ -161,21 +187,54 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
 
     /**
      * 当收到服务器通过长连接发送过来的推送通知时被调用，用途是进行新消息在通知窗口的通知，通知格式如下： alert 项为提示文字，fmid 代表是哪个 mid 发来的消息
-     * {"act":"msg","aps":{"alert":"@: sent to a message","sound":"push_audio_1.wav","badge":1},"fmid":"23"}
-     * 
+     * {"act":"msg","aps":{"alert":"@: sent to a com.ihs.message","sound":"push_audio_1.wav","badge":1},"fmid":"23"}
+     *
      * @param pushInfo 收到通知的信息
      */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     public void onReceivingRemoteNotification(JSONObject userInfo) {
         HSLog.d(TAG, "receive remote notification: " + userInfo);
         if (HSSessionMgr.getTopActivity() == null) {
-            // 大家在这里做通知中心的通知即可
+            try{
+                mid = userInfo.get("fmid").toString();
+            }catch (org.json.JSONException e){
+                e.printStackTrace();
+             }
+            Contact contact = FriendManager.getInstance().getFriend(mid);
+            name = contact.getName();
+            HSLog.e(TAG, "Contact " + name);
+//            String service = NOTIFICATION_SERVICE;
+            notificationManager = (NotificationManager)this.getSystemService(NOTIFICATION_SERVICE);
+//            notification = new Notification();
+//            String text = "Messages from: " + mid;
+//            long when = System.currentTimeMillis();
+//            notification.icon = R.drawable.ic_launcher;
+//            notification.tickerText = text;
+//            notification.when = when;
+//            notification.flags |= Notification.FLAG_AUTO_CANCEL;
+//            notification.defaults = Notification.DEFAULT_SOUND;
+            Notification.Builder mBuilder =
+                    new Notification.Builder(this)
+                            .setSmallIcon(R.drawable.ic_launcher)
+                            .setContentTitle("New Messages")
+                            .setContentText("From:" + name)
+                            .setAutoCancel(true)
+                            .setDefaults(Notification.DEFAULT_ALL);
+            Intent intent;
+            intent = new Intent(this, ChatActivity.class);
+            intent.putExtra("name", name);
+            intent.putExtra("mid", mid);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, Integer.valueOf(mid).intValue(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            mBuilder.setContentIntent(pendingIntent);
+            notificationManager.notify(Integer.valueOf(mid), mBuilder.build());
+
         }
     }
 
     /**
      * 有消息发生变化时的回调方法
-     * 
+     *
      * @param changeType 变化种类，消息增加 / 消息删除 / 消息状态变化
      * @param messages 变化涉及的消息对象
      */
@@ -183,6 +242,15 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
     public void onMessageChanged(HSMessageChangeType changeType, List<HSBaseMessage> messages) {
         // 同学们可以根据 changeType 的消息增加、删除、更新信息进行会话数据的构建
         if (changeType == HSMessageChangeType.ADDED && !messages.isEmpty()) {
+            for (HSBaseMessage hsBaseMessage: messages){
+                if(HSAccountManager.getInstance().getMainAccount() == null)
+                    break;
+                if(hsBaseMessage.getTo().equals(HSAccountManager.
+                        getInstance().getMainAccount().getMID())){
+                    play_ringtone();
+                    break;
+                }
+            }
         }
     }
 

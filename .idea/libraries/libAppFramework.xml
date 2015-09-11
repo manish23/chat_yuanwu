@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="libAppFramework">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Message/libs/libAppFramework.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

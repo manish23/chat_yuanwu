@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectModuleManager">
-    <modules />
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Message/Message.iml" filepath="$PROJECT_DIR$/Message/Message.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidsupportv7appcompat/androidsupportv7appcompat.iml" filepath="$PROJECT_DIR$/androidsupportv7appcompat/androidsupportv7appcompat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/googleplayservices_lib_r21/googleplayservices_lib_r21.iml" filepath="$PROJECT_DIR$/googleplayservices_lib_r21/googleplayservices_lib_r21.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yuanwu.iml" filepath="$PROJECT_DIR$/yuanwu.iml" />
+    </modules>
   </component>
 </project>
