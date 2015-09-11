@@ -49,6 +49,7 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
     public static final String URL_ACK = "http://54.223.212.19:8024/template/contacts/friends/get";
     MediaPlayer player;
     private NotificationManager notificationManager;
+    public static ManagerMessage managerMessage;
     String mid;
     String name;
 
@@ -62,6 +63,7 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
 
         doInit();
 
+        managerMessage = new ManagerMessage(this.getApplicationContext());
         initImageLoader(this);
 
         // 初始化百度地图 SDK
@@ -206,14 +208,6 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
             HSLog.e(TAG, "Contact " + name);
 //            String service = NOTIFICATION_SERVICE;
             notificationManager = (NotificationManager)this.getSystemService(NOTIFICATION_SERVICE);
-//            notification = new Notification();
-//            String text = "Messages from: " + mid;
-//            long when = System.currentTimeMillis();
-//            notification.icon = R.drawable.ic_launcher;
-//            notification.tickerText = text;
-//            notification.when = when;
-//            notification.flags |= Notification.FLAG_AUTO_CANCEL;
-//            notification.defaults = Notification.DEFAULT_SOUND;
             Notification.Builder mBuilder =
                     new Notification.Builder(this)
                             .setSmallIcon(R.drawable.ic_launcher)
@@ -251,6 +245,7 @@ public class DemoApplication extends HSApplication implements HSMessageChangeLis
                     break;
                 }
             }
+           
         }
     }
 

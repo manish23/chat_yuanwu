@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.ihs.commons.utils.HSLog;
+
 /**
  * Created by wuchen on 15-9-11.
  */
@@ -16,22 +18,26 @@ public class ManagerMessage extends SQLiteOpenHelper{
     private static final String Mid = "Mid";
     private static final String Msgid = "MsgID";
     private static final int DATA_VERSION = 1;
+    private SQLiteDatabase sqLiteDatabase;
 
     public ManagerMessage(Context context){
         super(context, DATA_BASE, null, DATA_VERSION);
-    }
-    public ManagerMessage getInstance(Context context){
-        if (managerMessage == null){
-            managerMessage = new ManagerMessage(context);
+        try{
+            sqLiteDatabase = getWritableDatabase();
+        }catch (Exception e){
+            sqLiteDatabase = getReadableDatabase();
         }
-        return managerMessage;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE" + TABLE_NAME + "(" + Msgid + "msgid," + Mid + "tomid);";
+        HSLog.e("Create DB:", "284694697");
+        try{
 
-        db.execSQL(sql);
+            db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "(" + Msgid + " text ," + Mid + " text );");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
     }
 
@@ -41,27 +47,28 @@ public class ManagerMessage extends SQLiteOpenHelper{
         db.execSQL(sql);
         onCreate(db);
     }
-    public long insert(String msgid, String tomid){
-        SQLiteDatabase db = this.getWritableDatabase();
+    public synchronized void insert(String msgid, String tomid){
+
+//        String sql = "insert into message(MsgID, Mid) values (" + msgid + "," + tomid + ");";
+//        db.execSQL(sql);
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Msgid, msgid);
-        contentValues.put(Mid, tomid);
-        long raw = db.insert(TABLE_NAME, null, contentValues);
-        return raw;
+        contentValues.put("MsgID", msgid);
+        contentValues.put("Mid", tomid);
+        sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
     }
-    public void deleteMid(String id){
+    public synchronized void deleteMid(String id){
         SQLiteDatabase db = this.getWritableDatabase();
         String where = Mid + "=?";
         String[] whereValue = {id};
         db.delete(TABLE_NAME, where, whereValue);
     }
-    public void deleteMsgid(String id){
+    public synchronized void deleteMsgid(String id){
         SQLiteDatabase db = this.getWritableDatabase();
         String where = Msgid + "=?";
         String[] whereValue = {id};
         db.delete(TABLE_NAME, where, whereValue);
     }
-    public Cursor select(String id){
+    public synchronized Cursor select(String id){
         SQLiteDatabase database = this.getReadableDatabase();
         String where = Mid + "=?";
         String[] whereValue = {id};
